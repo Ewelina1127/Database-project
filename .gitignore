@@ -1,7 +1,7 @@
-# Baza SQLite
+
 *.sqlite
 
-# pliki tymczasowe R
+
 .Rhistory
 .RData
 .Rproj.user/
