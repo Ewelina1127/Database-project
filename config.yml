@@ -1,0 +1,14 @@
+default:
+  db:
+    type: sqlite
+    path: "sqlite-version/airportdb.sqlite"
+
+postgres:
+  db:
+    type: postgres
+    driver: Postgres
+    host: "localhost"
+    port: 5432
+    dbname: "airport"
+    user: "postgres"
+    password: "TwojeHasło"
