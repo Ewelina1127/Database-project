@@ -121,10 +121,4 @@ See **SCHEMA\_DOCUMENTATION.md** for detailed descriptions of tables, views, tri
 
 ---
 
-## Contributing
 
-Feel free to open issues and submit pull requests. For major changes, please discuss them via issue first.
-
----
-
-*Enjoy exploring both the demo and the full-featured Postgres setup!*
