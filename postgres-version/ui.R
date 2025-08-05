@@ -840,7 +840,7 @@ tabItem(tabName = "wizzar",
                          solidHeader = TRUE, 
                          width = NULL,
                          collapsible = TRUE,
-                         style = "margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px;", 
+                         style = "margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px;",  # Padding for better appearance
                          dataTableOutput("owned_aircraft_table_wizzair")
                        )
                      )
@@ -888,7 +888,7 @@ tabItem(tabName = "wizzar",
                                   fluidRow(
                                     column(12, 
                                            selectInput("aircraft_id_select_wizzair", "Select aircraft ID:", 
-                                                       choices = as.list(load.owned.aircraft.ids.wizzair()))
+                                                       choices = as.list(aircrafts_wizzair))
                                     )
                                   ),
                                   fluidRow(
@@ -1012,7 +1012,7 @@ tabItem(tabName = "lot",
                          solidHeader = TRUE, 
                          width = NULL,
                          collapsible = TRUE,
-                         style = "margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px;", 
+                         style = "margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px;",  # Padding for better appearance
                          dataTableOutput("owned_aircraft_table_lot")
                        )
                      )
@@ -1059,7 +1059,7 @@ tabItem(tabName = "lot",
                                   fluidRow(
                                     column(12, 
                                            selectInput("aircraft_id_select_lot", "Select aircraft ID:", 
-                                                       choices = as.list(load.owned.aircraft.ids.lot()))
+                                                       choices = as.list(aircrafts_lot))
                                     )
                                   ),
                                   fluidRow(
@@ -1227,7 +1227,7 @@ tabItem(tabName = "ryanair",
                                        fluidRow(
                                          column(12, 
                                                 selectInput("aircraft_id_select_ryanair", "Select aircraft ID:", 
-                                                            choices = as.list(load.owned.aircraft.ids.ryanair()))
+                                                            choices = as.list(aircrafts_ryanair))
                                          )
                                        ),
                                        fluidRow(
@@ -1395,5 +1395,8 @@ tabItem(tabName = "employees",
     )
 
   )
+
+
+
 
 
