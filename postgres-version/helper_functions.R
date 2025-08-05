@@ -2,11 +2,11 @@ library("RPostgres")
 
 
 open.my.connection <- function() {
-  con <- dbConnect(RPostgres::Postgres(),dbname = 'airport',
+  con <- dbConnect(RPostgres::Postgres(),dbname = 'lotnisko',
                    host = 'localhost',
                    port = 5432, 
-                   user = '',
-                   password = "")
+                   user = ' ', # your_login
+                   password = " ") # your_password
   return (con)
 }
 
@@ -838,7 +838,7 @@ load.cancelled.flights.table <- function() {
 # LIST OF PASSENGERS-FOR A FLIGHT------------------------------------------------
 
 load.list.of.passengers <- function(flight_id) {
-
+  
   query <- paste("SELECT p.passenger_id, p.first_name, p.last_name,p.document_number, p.date_of_birth, p.gender, p.email,p.phone_number
                   FROM passengers p
                   JOIN reservations r ON p.passenger_id = r.passenger_id
@@ -897,8 +897,8 @@ add_reservation_to_db <- function(flight_id, passenger_id) {
 # ADD PASSENGER------------------------------------------------------------------
 
 add_passenger_to_db <- function(first_name, last_name, document, date_of_birth, gender, email, phone) {
- 
-   query <- paste(
+  
+  query <- paste(
     "SELECT add_passenger('", first_name, "', '", last_name, "', '", document, "', '", 
     date_of_birth, "', '", gender, "', '", email, "', '", phone, "');", sep = ""
   )
@@ -954,14 +954,14 @@ search.luggage.details <- function(luggage_id) {
 # ADD LUGGAGE--------------------------------------------------------------------
 
 add_luggage_to_db <- function(reservation_id, weight) {
-
+  
   query <- paste(
     "SELECT add_luggage(", reservation_id, ", ", weight, ");", sep = ""
   )
   
   con <- open.my.connection()
   
-
+  
   tryCatch({
     res <- dbSendQuery(con, query)
     dbClearResult(res)             
@@ -1036,7 +1036,7 @@ check_model_exists <- function(model) {
   
   close.my.connection(con)
   
- 
+  
   if (result$count == 1) {
     return("Success")
   } else {
@@ -1461,4 +1461,3 @@ assign.aircraft.to.flight <- function(flight_id, aircraft_id) {
   close.my.connection(con)
   return(res)
 }
-
